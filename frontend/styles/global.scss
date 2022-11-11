@@ -17,8 +17,9 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary);
+  background: var(--primary);
 }
+html,
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -52,4 +53,27 @@ a:visited {
     width: 1300px;
     height: 100%;
   }
+}
+
+.button {
+  background-color: var(--primary);
+  color: var(--font-button);
+  font-weight: bold;
+  border-radius: 40px;
+  padding: 10px 40px;
+  margin: 20px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 1300px) {
+    .container_component {
+        .content_container {
+          width: 100%;
+        }
+    }
 }

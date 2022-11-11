@@ -1,15 +1,11 @@
 import styleHeader from "./Header.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import Image from 'next/image'
 
 export default function HeaderComponent() {
-  const router = useRouter();
 
-  useEffect(() => {
-    console.log(router.pathname);
-  }, [router.pathname]);
+  const router = useRouter();
 
   return (
     <div className={styleHeader.header_container}>
