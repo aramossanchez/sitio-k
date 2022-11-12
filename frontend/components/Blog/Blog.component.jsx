@@ -28,61 +28,59 @@ export default function BlogComponent() {
   }, [valueInput]);
 
   return (
-    <div className="container_component">
-      <div className="content_container">
-        <div className={styleBlog.blog_title}>Lee los artículos de mi blog</div>
-        {/* barra de busqueda */}
-        {!searchBar && (
-          <div
-            className={styleBlog.search_button}
-            onClick={() => setSearchBar(true)}
+    <>
+      <div className={styleBlog.blog_title}>Lee los artículos de mi blog</div>
+      {/* barra de busqueda */}
+      {!searchBar && (
+        <div
+          className={styleBlog.search_button}
+          onClick={() => setSearchBar(true)}
+        >
+          <span class="material-symbols-outlined">search</span>
+        </div>
+      )}
+      {searchBar && (
+        <div className={styleBlog.search_bar}>
+          <span class="material-symbols-outlined">search</span>
+          <input
+            autoFocus
+            type="text"
+            placeholder="Busca por título o por contenido del post..."
+            value={valueInput}
+            onChange={(e) => setValueInput(e.target.value)}
+          />
+          <span
+            class="material-symbols-outlined"
+            onClick={() => (setSearchBar(false), setValueInput(""))}
           >
-            <span class="material-symbols-outlined">search</span>
-          </div>
-        )}
-        {searchBar && (
-          <div className={styleBlog.search_bar}>
-            <span class="material-symbols-outlined">search</span>
-            <input
-              autoFocus
-              type="text"
-              placeholder="Busca por título o por contenido del post..."
-              value={valueInput}
-              onChange={(e) => setValueInput(e.target.value)}
-            />
-            <span
-              class="material-symbols-outlined"
-              onClick={() => (setSearchBar(false), setValueInput(""))}
-            >
-              close
-            </span>
-          </div>
-        )}
-        {/* barra de busqueda */}
-        <div className={styleBlog.posts_list}>
-          {postsOk.map((post) => {
-            return (
-              <div key={post.id} className={styleBlog.post_card}>
-                <Image
-                  src={post.image}
-                  alt="Imagen del post"
-                  width={500}
-                  height={300}
-                />
-                <div className={styleBlog.title_post}>{post.title}</div>
-                <div className={styleBlog.content_button_post}>
-                  <div className={styleBlog.content_post}>
-                    {post.content.slice(0, 200) + "..."}
-                  </div>
-                  <div className={`${styleBlog.button_post} button`}>
-                    LEER MÁS...
-                  </div>
+            close
+          </span>
+        </div>
+      )}
+      {/* barra de busqueda */}
+      <div className={styleBlog.posts_list}>
+        {postsOk.map((post) => {
+          return (
+            <div key={post.id} className={styleBlog.post_card}>
+              <Image
+                src={post.image}
+                alt="Imagen del post"
+                width={500}
+                height={300}
+              />
+              <div className={styleBlog.title_post}>{post.title}</div>
+              <div className={styleBlog.content_button_post}>
+                <div className={styleBlog.content_post}>
+                  {post.content.slice(0, 200) + "..."}
+                </div>
+                <div className={`${styleBlog.button_post} button`}>
+                  LEER MÁS...
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
-    </div>
+    </>
   );
 }

@@ -9,7 +9,11 @@ export default function LayoutComponent({ children, title }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderComponent />
-      <main>{children}</main>
+      <div className="container_component">
+        <div className="content_container">
+          <main>{children}</main>
+        </div>
+      </div>
     </>
   )
 }
