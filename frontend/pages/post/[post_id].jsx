@@ -1,9 +1,12 @@
-export default function LandingComponent() {
-    return (
-      <div className="container_component">
-        <div className="content_container">
-        </div>
-      </div>
-    );
-  }
-  
+import PostComponent from "../../components/Post/Post.component";
+import LayoutComponent from "../../components/Layout/Layout.component";
+
+export default function PostPage() {
+  return (
+    <div>
+      <LayoutComponent title='Entrada del blog - Laneuronamina'>
+        <PostComponent />
+      </LayoutComponent>
+    </div>
+  )
+}

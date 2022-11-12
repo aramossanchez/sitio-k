@@ -2,6 +2,7 @@ import posts from "../../services/posts";
 import styleBlog from "./Blog.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function BlogComponent() {
   //usado para mostrar barra de busqueda o boton de lupa
@@ -13,13 +14,7 @@ export default function BlogComponent() {
 
   //filtar
   const search = (e) => {
-    setPostsOk(
-      posts.filter(
-        (post) =>
-          post.content.toUpperCase().includes(e.toUpperCase()) ||
-          post.title.toUpperCase().includes(e.toUpperCase())
-      )
-    );
+    setPostsOk(posts.filter((post) => post.content.toUpperCase().includes(e.toUpperCase()) || post.title.toUpperCase().includes(e.toUpperCase())));
   };
 
   //cada cambio en valueInput hace un filtrado en el array postOk, refrescando el filtrado constantemente
@@ -30,27 +25,24 @@ export default function BlogComponent() {
   return (
     <>
       <div className={styleBlog.blog_title}>Lee los artículos de mi blog</div>
-      {/* barra de busqueda */}
-      {!searchBar && (
         <div
           className={styleBlog.search_button}
           onClick={() => setSearchBar(true)}
         >
-          <span class="material-symbols-outlined">search</span>
+          <span className="material-symbols-outlined">search</span>
         </div>
-      )}
       {searchBar && (
         <div className={styleBlog.search_bar}>
-          <span class="material-symbols-outlined">search</span>
+          <span className="material-symbols-outlined">search</span>
           <input
             autoFocus
             type="text"
-            placeholder="Busca por título o por contenido del post..."
+            placeholder="Buscar en los artículos..."
             value={valueInput}
             onChange={(e) => setValueInput(e.target.value)}
           />
           <span
-            class="material-symbols-outlined"
+            className="material-symbols-outlined"
             onClick={() => (setSearchBar(false), setValueInput(""))}
           >
             close
@@ -73,9 +65,9 @@ export default function BlogComponent() {
                 <div className={styleBlog.content_post}>
                   {post.content.slice(0, 200) + "..."}
                 </div>
-                <div className={`${styleBlog.button_post} button`}>
-                  LEER MÁS...
-                </div>
+                <Link className={`${styleBlog.button_post} button`} href={`/post/${post.id}`}>
+                    LEER MÁS...
+                </Link>
               </div>
             </div>
           );

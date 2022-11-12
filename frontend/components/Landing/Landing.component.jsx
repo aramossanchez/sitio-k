@@ -1,3 +1,5 @@
+import styleLanding from './Landing.module.scss';
+
 export default function LandingComponent() {
   return (
     <>

@@ -34,7 +34,7 @@ export default function HeaderComponent() {
             </Link>
             <Link
               className={
-                router.pathname === "/blog" ? styleHeader.current : null
+                router.pathname === "/blog" || router.pathname.includes('/post/') ? styleHeader.current : null
               }
               href="/blog"
             >
@@ -52,11 +52,11 @@ export default function HeaderComponent() {
             </Link>
             <Link
               className={
-                router.pathname === "/sobre-mi" ? styleHeader.current : null
+                router.pathname === "/contacto" ? styleHeader.current : null
               }
-              href="/sobre-mi"
+              href="/contacto"
             >
-              Sobre mi
+              Contacto
             </Link>
           </div>
       </div>

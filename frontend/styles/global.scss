@@ -30,12 +30,10 @@ body {
 }
 
 a {
-  color: var(--font);
   text-decoration: none;
 }
 
 a:visited {
-  color: var(--font);
   text-decoration: none;
 }
 
@@ -52,6 +50,7 @@ a:visited {
   .content_container {
     width: 1300px;
     height: 100%;
+    position: relative;
   }
 }
 
