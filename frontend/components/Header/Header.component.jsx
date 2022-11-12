@@ -25,40 +25,40 @@ export default function HeaderComponent() {
             height={80}
           />
         </div>
-          <div className={menuOpen ? `${styleHeader.header_links_container_open}` : `${styleHeader.header_links_container_close}`}>
-            <Link
-              className={router.pathname === "/" ? styleHeader.current : null}
-              href="/"
-            >
-              Inicio
-            </Link>
-            <Link
-              className={
-                router.pathname === "/blog" || router.pathname.includes('/post/') ? styleHeader.current : null
-              }
-              href="/blog"
-            >
-              Blog
-            </Link>
-            <Link
-              className={
-                router.pathname === "/colaboraciones"
-                  ? styleHeader.current
-                  : null
-              }
-              href="/colaboraciones"
-            >
-              Colaboraciones
-            </Link>
-            <Link
-              className={
-                router.pathname === "/contacto" ? styleHeader.current : null
-              }
-              href="/contacto"
-            >
-              Contacto
-            </Link>
-          </div>
+        <div className={menuOpen ? `${styleHeader.header_links_container_open}` : `${styleHeader.header_links_container_close}`}>
+          <Link
+            className={router.pathname === "/" ? styleHeader.current : null}
+            href="/"
+          >
+            Inicio
+          </Link>
+          <Link
+            className={
+              router.pathname === "/blog" || router.pathname.includes('/post/') ? styleHeader.current : null
+            }
+            href="/blog"
+          >
+            Blog
+          </Link>
+          <Link
+            className={
+              router.pathname === "/colaboraciones"
+                ? styleHeader.current
+                : null
+            }
+            href="/colaboraciones"
+          >
+            Colaboraciones
+          </Link>
+          <Link
+            className={
+              router.pathname === "/contacto" ? styleHeader.current : null
+            }
+            href="/contacto"
+          >
+            Contacto
+          </Link>
+        </div>
       </div>
     </div>
   );

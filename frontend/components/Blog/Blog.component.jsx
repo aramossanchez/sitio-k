@@ -25,12 +25,12 @@ export default function BlogComponent() {
   return (
     <>
       <div className={styleBlog.blog_title}>Lee los artículos de mi blog</div>
-        <div
-          className={styleBlog.search_button}
-          onClick={() => setSearchBar(true)}
-        >
-          <span className="material-symbols-outlined">search</span>
-        </div>
+      <div
+        className={styleBlog.search_button}
+        onClick={() => setSearchBar(true)}
+      >
+        <span className="material-symbols-outlined">search</span>
+      </div>
       {searchBar && (
         <div className={styleBlog.search_bar}>
           <span className="material-symbols-outlined">search</span>
@@ -66,7 +66,7 @@ export default function BlogComponent() {
                   {post.content.slice(0, 200) + "..."}
                 </div>
                 <Link className={`${styleBlog.button_post} button`} href={`/post/${post.id}`}>
-                    LEER MÁS...
+                  LEER MÁS...
                 </Link>
               </div>
             </div>
